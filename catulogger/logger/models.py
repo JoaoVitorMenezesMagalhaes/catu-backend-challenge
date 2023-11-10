@@ -7,3 +7,14 @@ class Log(models.Model):
     action_type = models.CharField(max_length=100)
     object_type = models.CharField(max_length=100)
     object_id = models.IntegerField()
+
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "created_at": self.created_at,
+            "who": self.who,
+            "action_type": self.action_type,
+            "object_type": self.object_type,
+            "object_id": self.object_id,
+        }
